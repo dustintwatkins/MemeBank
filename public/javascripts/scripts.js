@@ -5,11 +5,15 @@ myApp.controller("memeBank",["$scope", "$firebaseArray",
 		var ref = firebase.database().ref().child("memes");
 		$scope.picBank = $firebaseArray(ref);
 		$scope.update = function(pic){
-			console.log("entered second");
-			var meme = pic;
+			console.log(pic);
+			var meme = {URL:$scope.pic.URL, name:$scope.pic.name};
 			console.log(meme);
 			$scope.picBank.$add(meme);
 			pic.url = ""; 
+			console.log(meme.name);
+			console.log(meme.URL);
+			$scope.imageSource = meme;
+
 		}
 	} 
 	]);

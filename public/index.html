@@ -25,12 +25,13 @@
 <body>
 	<div ng-controller="memeBank">
 	<form novalidate class = "simple-form">
-		Meme URL: <input type = "url" ng-model="pic"/><br/>
+		Name: <input type = "text" ng-model="pic.name"/><br/>
+		Meme URL: <input type = "url" ng-model="pic.URL"/><br/>
 		<input type = "submit" ng-click="update(pic)" value = "Save" />
 	</form>
 	<ul>
 		<li ng-repeat = 'pic in picBank'>
-			<img src = {{pic.url}} width = "150" height = "150">
+		{{pic.name}} -	<img ng-model = "imageSrc" src = {{pic.URL}} width = "150" height = "150">
 		</li>
 	</ul>
 	</div>

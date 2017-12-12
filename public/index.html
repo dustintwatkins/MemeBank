@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA3fttzitw6niigLQUqvbht8734zoKsD6c",
+    authDomain: "memebank-87bc0.firebaseapp.com",
+    databaseURL: "https://memebank-87bc0.firebaseio.com",
+    projectId: "memebank-87bc0",
+    storageBucket: "memebank-87bc0.appspot.com",
+    messagingSenderId: "462285133353"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+<!-- Your Javascript -->
+<script src="javascripts/scripts.js"></script>
+</head>
+
+<body>
+	<div ng-controller="memeBank">
+	<form novalidate class = "simple-form">
+		Meme URL: <input type = "url" ng-model="pic"/><br/>
+		<input type = "submit" ng-click="update(pic)" value = "Save" />
+	</form>
+	<ul>
+		<li ng-repeat = 'pic in picBank'>
+			<img src = {{pic.url}} width = "150" height = "150">
+		</li>
+	</ul>
+	</div>
+</body>
+</html>
